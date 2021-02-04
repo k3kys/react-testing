@@ -1,20 +1,26 @@
-import React from "react";
-import PropTypes from "prop-types"
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-const Headline = (props) => {
-  const { header, desc } = props;
+class Headline extends Component {
 
-    if(!header) {
-        return null;
+    render(){
+
+        const { header, desc } = this.props;
+
+        if(!header){
+            return null;
+        }
+
+        return (
+            <div data-test="HeadlineComponent">
+                <h1 data-test="header">{header}</h1>
+                <p data-test="desc">
+                    {desc}
+                </p>
+            </div>
+        )
     }
-
-  return (
-    <div data-test="HeadlineComponent">
-        <h1 data-test="header">{header}</h1>
-        <p data-test="desc"> {desc} </p>
-    </div>
-  );
-};
+}
 
 Headline.propTypes = {
     header: PropTypes.string,
